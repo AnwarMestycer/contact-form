@@ -1,0 +1,50 @@
+<div class="w-[50rem] h-[55rem] bg-white flex justify-center mt-[5rem] rounded-xl p-[2rem]">
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()"
+        class=" w-[95%] grid grid-cols-2 pt-[2rem] gap-y-0 text-darkGrey">
+        <p class="text-4xl font-bold col-span-2">Contact Us</p>
+        <div class="col-span-1">
+            <label for="firstname" class="text-xl text-black">First name * </label>
+            <br>
+            <input class="form-control w-[95%] h-[4rem] mt-[0.6rem]" id="firstname" type="text"
+                formControlName="firstname" [ngClass]="invalidFirstname">
+        </div>
+        <div class="col-span-1">
+            <label for="lastname" class="text-xl"> Last name * </label>
+            <br>
+            <input class="form-control w-[95%] h-[4rem] mt-[0.6rem]" id="lastname" type="text"
+                formControlName="lastname" [ngClass]="invalidLastname">
+        </div>
+        <div class="col-span-2">
+            <label for="email" class="text-xl">Email * </label>
+            <input class="form-control w-[97.5%] h-[4rem] mt-[0.6rem]" id="email" type="text" formControlName="email"
+                [ngClass]="invalidEmail">
+        </div>
+        
+        <label>Query type * </label>
+        <fieldset class="col-span-2 w-[100%] flex flex-column gap-[1rem] text-xl mt-0 ">
+            <div class="col-span-1  form-control flex items-center gap-[0.5rem] w-[47.5%] h-[4rem]">
+                <input id="general-equity" type="radio" value="general" formControlName="querytype" name="querytype" class="ml-[1rem]"[ngClass]="invalidInput">
+                <label for="general-equity">General Equity</label>
+            </div>
+            <div class="col-span-1 form-control h-[4rem] w-[47.5%] flex items-center gap-[0.5rem]">
+
+                <input id="support-request" type="radio" value="support" formControlName="querytype" name="querytype" class="ml-[1rem]"[ngClass]="invalidInput">
+                <label for="support-request">Support Request </label>
+            </div>
+        </fieldset>
+
+        <div class="col-span-2">
+            <label for="message">Message *</label>
+
+            <input class="form-control w-[97.5%] h-[7rem]" id="message" type="textarea" formControlName="message"
+                [ngClass]="invalidMessage">
+        </div>
+        <div class="col-span-2">
+
+            <input id="accept" type="checkbox" formControlName="accept">
+            <label for="accept"> I consent to being contacted by the team *</label>
+
+        </div>
+        <button type="submit" class="col-span-2 bg-green rounded-lg text-white">Submit</button>
+    </form>
+</div>
